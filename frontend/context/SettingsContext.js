@@ -2,21 +2,21 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { settingsAPI } from '../services/api';
 
 const defaultSettings = {
-  brand_name: 'CampusEvents',
-  tagline: 'Discover, Join & Experience College Events',
-  description: 'The all-in-one platform for college workshops, hackathons, and cultural fests.',
+  brand_name: 'Campus Events',
+  tagline: 'Connecting people through campus and community events',
+  description: 'A modern platform designed to make event management simple, efficient, and accessible.',
   logo: '',
   favicon: '',
-  address: 'Campus Center, Academic Block 4, Tech City',
-  email: 'info@campusevents.edu',
-  phone: '+1 (555) 234-5678',
-  website: 'https://campusevents.edu',
-  footer_description: 'Discover events, secure tickets, and network with passionate students across campus.',
-  facebook: 'https://facebook.com',
-  instagram: 'https://instagram.com',
-  linkedin: 'https://linkedin.com',
+  address: '',
+  email: '',
+  phone: '',
+  website: '',
+  footer_description: 'A modern platform designed to make event management simple, efficient, and accessible.',
+  facebook: '',
+  instagram: '',
+  linkedin: '',
   youtube: '',
-  twitter: 'https://twitter.com'
+  twitter: ''
 };
 
 const SettingsContext = createContext({
@@ -33,10 +33,16 @@ export function SettingsProvider({ children }) {
     try {
       const res = await settingsAPI.getPublicSettings();
       if (res.data?.success && res.data.data) {
-        setSettings(prev => ({
-          ...prev,
-          ...res.data.data
-        }));
+        const liveSettings = res.data.data;
+        setSettings(prev => {
+          const merged = { ...prev, ...liveSettings };
+          try {
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('app_brand_settings', JSON.stringify(merged));
+            }
+          } catch (e) {}
+          return merged;
+        });
       }
     } catch (err) {
       console.warn('Failed to load public brand settings, using defaults:', err.message);
@@ -46,6 +52,16 @@ export function SettingsProvider({ children }) {
   };
 
   useEffect(() => {
+    // Hydrate immediately from localStorage if available
+    try {
+      if (typeof window !== 'undefined') {
+        const cached = localStorage.getItem('app_brand_settings');
+        if (cached) {
+          setSettings(prev => ({ ...prev, ...JSON.parse(cached) }));
+        }
+      }
+    } catch (e) {}
+
     fetchSettings();
   }, []);
 

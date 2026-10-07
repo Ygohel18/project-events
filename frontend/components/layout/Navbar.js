@@ -253,8 +253,7 @@ export default function Navbar() {
                   {/* Dropdown Menu */}
                   {isUserMenuOpen && (
                     <div
-                      className="position-absolute end-0 mt-2 bg-white rounded-3 shadow border p-2"
-                      style={{ minWidth: '220px', zIndex: 1050 }}
+                      className="nav-user-dropdown-menu mt-2 bg-white rounded-3 shadow border p-2"
                     >
                       {/* User Info Header */}
                       <div className="px-3 py-2 border-bottom mb-1">

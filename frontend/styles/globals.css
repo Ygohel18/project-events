@@ -304,3 +304,23 @@ body {
   fill: #FFFFFF !important;
 }
 
+/* ========================================================
+   Responsive User Avatar Dropdown (Mobile vs Desktop)
+   ======================================================== */
+.nav-user-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0 !important;
+  right: auto !important;
+  min-width: 250px;
+  max-width: calc(100vw - 32px);
+  z-index: 1050;
+}
+
+@media (min-width: 992px) {
+  .nav-user-dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
+
