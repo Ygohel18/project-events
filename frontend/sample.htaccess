@@ -1,0 +1,19 @@
+# ========================================================
+# cPanel Apache & Phusion Passenger Configuration
+# Place this .htaccess in your frontend domain/subdomain root (e.g. app.yourdomain.com)
+# ========================================================
+
+<IfModule mod_passenger.c>
+    PassengerAppRoot "/home/YOUR_CPANEL_USERNAME/frontend"
+    PassengerBaseURI "/"
+    PassengerNodejs "/home/YOUR_CPANEL_USERNAME/nodevenv/frontend/20/bin/node"
+    PassengerAppType node
+    PassengerStartupFile app.js
+    PassengerAppEnv production
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ app.js [QSA,L]
+</IfModule>

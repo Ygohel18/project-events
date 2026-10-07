@@ -1,0 +1,306 @@
+/* ========================================================
+   EventHub - Global Styles & Bootstrap Customizations
+   Clean custom CSS matching REFERENCE.png
+   ======================================================== */
+
+:root {
+  --primary-blue: #2563EB;
+  --secondary-blue: #3B82F6;
+  --dark-navy: #123B70;
+  --light-blue: #EFF6FF;
+  --page-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --border-color: #DCE7F3;
+  --text-primary: #17365D;
+  --text-secondary: #64748B;
+  --success-color: #16A34A;
+  --warning-color: #F59E0B;
+  --danger-color: #DC2626;
+
+  /* Overriding Bootstrap 5 CSS variables */
+  --bs-primary: #2563EB;
+  --bs-primary-rgb: 37, 99, 235;
+  --bs-body-bg: #F8FAFC;
+  --bs-body-color: #17365D;
+  --bs-border-color: #DCE7F3;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Primary Button */
+.btn-primary {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-outline-primary {
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: #ffffff;
+}
+
+/* Clean Cards */
+.card {
+  border-color: var(--border-color);
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 3px rgba(18, 59, 112, 0.05);
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(18, 59, 112, 0.08);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(18, 59, 112, 0.85), rgba(18, 59, 112, 0.9)),
+              url('/images/hero-bg.jpg') center/cover no-repeat;
+  color: #ffffff;
+  padding: 4.5rem 1rem;
+  border-radius: 16px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-search-bar {
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 0.4rem 0.5rem 0.4rem 1.2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Filter Pills */
+.category-item {
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.category-item:hover {
+  background-color: var(--light-blue);
+  color: var(--primary-blue);
+}
+
+.category-item.active {
+  background-color: var(--light-blue);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Custom Status Badges */
+.badge-confirmed {
+  background-color: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+
+.badge-pending {
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+
+.badge-cancelled {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* Dashboard Sidebar */
+.dashboard-sidebar {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 0.75rem;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.65rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.92rem;
+  transition: all 0.15s ease;
+}
+
+.sidebar-nav-link:hover {
+  background-color: var(--light-blue);
+  color: var(--primary-blue);
+}
+
+.sidebar-nav-link.active {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+}
+
+/* Notification Items */
+.notification-card {
+  border-left: 4px solid transparent;
+  transition: background-color 0.15s ease;
+}
+
+.notification-card.unread {
+  background-color: #F0F7FF;
+  border-left-color: var(--primary-blue);
+}
+
+/* Form inputs styling */
+.form-control, .form-select {
+  border-color: var(--border-color);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  color: var(--text-primary);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Navbar Links */
+.navbar-brand {
+  color: var(--dark-navy) !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar .nav-link {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: 6px;
+  transition: color 0.15s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--primary-blue) !important;
+}
+
+/* ========================================================
+   Tabs, Segmented Controls & Status Filter Styling
+   Ensures Active Tab text is pure white (#FFFFFF) with high contrast
+   ======================================================== */
+
+/* Active Tab States */
+.nav-pills .nav-link.active,
+.nav-tabs .nav-link.active,
+.btn-primary,
+.tab-btn.active,
+.segmented-tab.active,
+.btn-group > .btn.active {
+  background-color: var(--primary-blue) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Ensure active tab icons and children render pure white */
+.nav-pills .nav-link.active svg,
+.nav-pills .nav-link.active .svg-inline--fa,
+.nav-pills .nav-link.active i,
+.nav-tabs .nav-link.active svg,
+.nav-tabs .nav-link.active .svg-inline--fa,
+.nav-tabs .nav-link.active i,
+.btn-primary svg,
+.btn-primary .svg-inline--fa,
+.btn-primary i,
+.tab-btn.active svg,
+.tab-btn.active .svg-inline--fa,
+.segmented-tab.active svg,
+.segmented-tab.active .svg-inline--fa {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Inactive Tab States */
+.nav-pills .nav-link:not(.active),
+.nav-tabs .nav-link:not(.active),
+.tab-btn:not(.active),
+.segmented-tab:not(.active) {
+  color: var(--text-secondary) !important;
+  background-color: transparent;
+  border-color: transparent;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Inactive Tab Hover States */
+.nav-pills .nav-link:not(.active):hover,
+.nav-tabs .nav-link:not(.active):hover,
+.tab-btn:not(.active):hover,
+.segmented-tab:not(.active):hover {
+  color: var(--primary-blue) !important;
+  background-color: var(--light-blue);
+}
+
+/* Active Tab Hover State (preserves white text) */
+.nav-pills .nav-link.active:hover,
+.nav-tabs .nav-link.active:hover,
+.btn-primary:hover,
+.tab-btn.active:hover,
+.segmented-tab.active:hover {
+  background-color: #1d4ed8 !important;
+  color: #FFFFFF !important;
+  border-color: #1d4ed8 !important;
+}
+
+.nav-pills .nav-link.active:hover svg,
+.nav-pills .nav-link.active:hover .svg-inline--fa,
+.nav-tabs .nav-link.active:hover svg,
+.nav-tabs .nav-link.active:hover .svg-inline--fa,
+.btn-primary:hover svg,
+.btn-primary:hover .svg-inline--fa {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
